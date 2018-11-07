@@ -1,20 +1,27 @@
 package train;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import static train.TrainConstants.SEPARATOR;
 
 public class CityProcessor {
 
-    private Set<City> ruteGraph = new HashSet<>();
+
+    private Rutes rutes;
 
     public CityProcessor() {
 
+        initRoute();
+        initRoutes();
+    }
+
+    private void initRoute() {
+        rutes = new Rutes();
+    }
+
+    private void initRoutes() {
         Cities[] listOfCities = Cities.values();
         for (Cities ct : listOfCities) {
             City city = new City(ct.name().charAt(0), 0);
-            ruteGraph.add(city);
+            rutes.addRute(city);
         }
     }
 
@@ -36,7 +43,8 @@ public class CityProcessor {
     }
 
     public City getCity(Character cityName) {
-        for (City cityToSearch : ruteGraph) {
+        //  for (City cityToSearch : ruteGraph) {
+        for (City cityToSearch : rutes.getRoutes()) {
             if (cityToSearch.getName().equals(cityName)) {
                 return cityToSearch;
             }
@@ -51,5 +59,9 @@ public class CityProcessor {
 
     private String[] getRutes(String pathOfCities) {
         return pathOfCities.split(SEPARATOR);
+    }
+
+    public void setRutes(Rutes rutes){
+        this.rutes = rutes;
     }
 }

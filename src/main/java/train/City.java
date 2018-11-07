@@ -1,6 +1,8 @@
 package train;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class City {
@@ -10,6 +12,8 @@ public class City {
     private int distance;
 
     private Map<City, Integer> adjacentNodes = new HashMap<>();
+
+    private List<City> shortestPath = new LinkedList<>();
 
     public City(Character name, int distance) {
         this.name = name;
@@ -38,5 +42,13 @@ public class City {
 
     public void setAdjacentNodes(City city, int distance) {
         this.adjacentNodes.put(city,distance);
+    }
+
+    public List<City> getShortestPath() {
+        return shortestPath;
+    }
+
+    public void setShortestPath(List<City> shortestPath) {
+        this.shortestPath = shortestPath;
     }
 }
