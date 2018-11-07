@@ -35,7 +35,7 @@ public class CityProcessor {
         source.setAdjacentNodes(destine, distance);
     }
 
-    private City getCity(Character cityName) {
+    public City getCity(Character cityName) {
         for (City cityToSearch : ruteGraph) {
             if (cityToSearch.getName().equals(cityName)) {
                 return cityToSearch;
