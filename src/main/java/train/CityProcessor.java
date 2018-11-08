@@ -20,7 +20,7 @@ public class CityProcessor {
     private void initRoutes() {
         Cities[] listOfCities = Cities.values();
         for (Cities ct : listOfCities) {
-            City city = new City(ct.name().charAt(0), 0);
+            City city = new City(ct.name().charAt(0));
             rutes.addRute(city);
         }
     }
@@ -43,7 +43,6 @@ public class CityProcessor {
     }
 
     public City getCity(Character cityName) {
-        //  for (City cityToSearch : ruteGraph) {
         for (City cityToSearch : rutes.getRoutes()) {
             if (cityToSearch.getName().equals(cityName)) {
                 return cityToSearch;
@@ -61,7 +60,11 @@ public class CityProcessor {
         return pathOfCities.split(SEPARATOR);
     }
 
-    public void setRutes(Rutes rutes){
+    public void setRutes(Rutes rutes) {
         this.rutes = rutes;
+    }
+
+    public Rutes getRutes() {
+        return this.rutes;
     }
 }

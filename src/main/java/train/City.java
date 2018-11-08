@@ -15,9 +15,9 @@ public class City {
 
     private List<City> shortestPath = new LinkedList<>();
 
-    public City(Character name, int distance) {
+    public City(Character name) {
         this.name = name;
-        this.distance = distance;
+        this.distance = Integer.MAX_VALUE;
     }
 
     public int getDistance() {
